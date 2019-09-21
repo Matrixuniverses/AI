@@ -1,25 +1,9 @@
+from DFSFrontier import DFSFrontier
 from search import *
-class DFSFrontier(Frontier):
-   """Implements a frontier container appropriate for depth-first
-   search."""
-   def __init__(self):
-       """The constructor takes no argument. It initialises the
-       container to an empty stack."""
-       self.container = []
-   def add(self, path):
-       self.container.append(path)
-   def __iter__(self):
-       """The object returns itself because it is implementing a __next__
-       method and does not need any additional state for iteration."""
-       return self
-   def __next__(self):
-       if len(self.container) > 0:
-           return self.container.pop() # FIX THIS return something instead
-       else:
-           raise StopIteration   # don't change this one
 
 def main():
     # Test case 1
+    print("\nTest case 1\n")
     graph = ExplicitGraph(nodes=set('SAG'),
                       edge_list=[('S','A'), ('S', 'G'), ('A', 'G')],
                       starting_nodes=['S'],
@@ -30,6 +14,7 @@ def main():
     print_actions(solution)
 
     # Test case 2
+    print("\nTest case 2\n")
     graph = ExplicitGraph(nodes=set('SAG'),
                           edge_list=[('S', 'G'), ('S','A'), ('A', 'G')],
                           starting_nodes=['S'],
@@ -40,6 +25,7 @@ def main():
     print_actions(solution)
 
     # Test case 3
+    print("\nTest case 3\n")
     available_flights = ExplicitGraph(
         nodes=['Christchurch', 'Auckland',
                'Wellington', 'Gold Coast'],
@@ -56,6 +42,7 @@ def main():
     print_actions(my_itinerary)
 
     # Test case 4
+    print("\nTest case 4\n")
     graph = ExplicitGraph(nodes=set('SAG'),
                           edge_list=[('S', 'G'), ('S','A'),
                                      ('A', 'S'), ('A', 'G')],
@@ -67,6 +54,7 @@ def main():
     print_actions(solution)
 
     # Test case 5
+    print("\nTest case 5\n")
     graph = ExplicitGraph(nodes=['Knowledge',
                                  'Commerce',
                                  'Wisdom',
