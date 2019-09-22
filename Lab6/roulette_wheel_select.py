@@ -5,3 +5,4 @@ def roulette_wheel_select(population, fitness, r):
 
     for p in population:
         total += fitness(p)
+        if total > n: return p
