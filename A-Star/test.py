@@ -1,5 +1,5 @@
 from search import *
-from Graph import *
+from RoutingGraph import *
 
 def q1ans():
     map_str = """\

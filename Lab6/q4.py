@@ -1,33 +1,32 @@
-from n_queens_neighbours import n_queens_neighbours as neighbours
-from n_queens_neighbours import n_queens_cost as cost
-from greedy_descent import *
-import random
+from csp import *
+from arc_consistent import arc_consistent
 
 def main():
     # Test case 1
     print("\nTest case 1\n")
 
-    N = 6
-    random.seed(0)
+    simple_csp = CSP(
+        var_domains={x: set(range(1, 5)) for x in 'abc'},
+        constraints={
+            lambda a, b: a < b,
+            lambda b, c: b < c,
+            })
 
-    def random_state():
-            return tuple(random.sample(range(1,N+1), N))   
-
-    greedy_descent_with_random_restart(random_state, neighbours, cost)
+    csp = arc_consistent(simple_csp)
+    for var in sorted(csp.var_domains.keys()):
+        print("{}: {}".format(var, sorted(csp.var_domains[var])))
 
 
     # Test case 2
     print("\nTest case 2\n")
 
-    N = 8
-    random.seed(0)
+    csp = CSP(var_domains={x: set(range(10)) for x in 'abc'},
+              constraints={lambda a, b, c: 2 * a + b + 2 * c == 10})
 
-    def random_state():
-        return tuple(random.sample(range(1,N+1), N))   
-
-    greedy_descent_with_random_restart(random_state, neighbours, cost)
+    csp = arc_consistent(csp)
+    for var in sorted(csp.var_domains.keys()):
+        print("{}: {}".format(var, sorted(csp.var_domains[var])))
 
 
 if __name__ == "__main__":
     main()
-
