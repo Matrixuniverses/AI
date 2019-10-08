@@ -5,4 +5,7 @@ def euclidean_distance(v1, v2):
 
 
 def majority_element(labels):
+    """
+    WARNING: This method is unstable, and needs to be updated
+    """
     return max(set(list(labels)), key=labels.count)
