@@ -12,8 +12,5 @@ def main():
     print(accuracy(perceptron, inputs, targets))
 
 
-
-
-
 if __name__ == "__main__":
     main()
